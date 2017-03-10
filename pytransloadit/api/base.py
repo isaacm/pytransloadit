@@ -26,9 +26,9 @@ class APIEndpoint(object):
         if resource_id:
             endpoint = '{}/{}'.format(endpoint, resource_id)
 
-        response = self.api.execute("GET", endpoint)
+        response = self.api.execute(endpoint, method="GET")
 
-        return response.json()
+        return response
 
     def post(self, params):
         """ Creates a new instance of the resource.
@@ -36,7 +36,8 @@ class APIEndpoint(object):
         :param params: payload for the request
 
         """
-        response = self.api.execute("POST", self.endpoint, params=params)
+        response = self.api.execute(
+            self.endpoint, method="POST", params=params)
         return response
 
     def put(self, resource):
@@ -50,7 +51,8 @@ class APIEndpoint(object):
         if resource.id:
             endpoint = '{}/{}'.format(endpoint, resource.id)
 
-        response = self.api.execute("PUT", endpoint, json=resource.as_json())
+        response = self.api.execute(
+            endpoint, method="PUT", json=resource.as_json())
 
         return response
 
@@ -62,6 +64,6 @@ class APIEndpoint(object):
 
         endpoint = '{}/{}'.format(self.endpoint, resource_id)
 
-        response = self.api.execute("DELETE", endpoint)
+        response = self.api.execute(endpoint, method="DELETE")
 
         return response
