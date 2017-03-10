@@ -45,15 +45,16 @@ class TransloadItClient(object):
 
     def build_payload(self, params):
         data = {}
-        if 'auth' not in data:
-            data['auth'] = {
+        if 'auth' not in params:
+            params['auth'] = {
                 'key': self.key,
                 'expires': (
-                    datetime.now() + timedelta(seconds=self.duration)
+                    datetime.utcnow() + timedelta(seconds=self.duration)
                 ).strftime('%Y/%m/%d %H:%M:%S')
             }
+
         if self.max_size is not None:
-            data['max_size'] = self.max_size
+            params['auth']['max_size'] = self.max_size
 
         data['params'] = json.dumps(params)
         data['signature'] = self._sign_request(params)
@@ -61,13 +62,16 @@ class TransloadItClient(object):
 
     def execute(self, path, method='GET', params=None):
         url = "{}{}".format(self.base_url, path)
-        if 'auth' not in params:
-            data = self.build_payload(params)
+
+        if params is None:
+            params = {}
+
+        data = self.build_payload(params)
 
         response = requests.request(
             method,
             url,
-            data=data,
+            params=data,
             **self._client_kwargs
         )
 
