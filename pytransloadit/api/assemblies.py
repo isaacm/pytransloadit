@@ -18,14 +18,16 @@ class Assemblies(base.APIEndpoint):
 
         return super(Assemblies, self).get(resource_id=assembly_id)
 
-    def post(self, params):
-        """Create a new assembly.
+    def post(self, params, files=None):
+        """Create a new assembly and sends files for processing.
 
         :param params: POST data for template creation
         :type params: dict
+        :param files: files for the assembly to process
+        :type files: list
         """
 
-        return super(Assemblies, self).post(params)
+        return super(Assemblies, self).post(params, files=files)
 
     def delete(self, assembly_id):
         """Cancel an Assembly.

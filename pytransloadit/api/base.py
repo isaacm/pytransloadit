@@ -30,14 +30,15 @@ class APIEndpoint(object):
 
         return response
 
-    def post(self, params):
+    def post(self, params, files=None):
         """ Creates a new instance of the resource.
 
         :param params: payload for the request
+        :param files: a list of files to process
 
         """
         response = self.api.execute(
-            self.path, method="POST", params=params)
+            self.path, method="POST", params=params, files=files)
         return response
 
     def put(self, resource):

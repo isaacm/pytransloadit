@@ -24,6 +24,9 @@ class TransloadItClient(object):
         self.duration = duration
         self.max_size = max_size
         self.base_url = base_url
+        self.headers = {
+            'User-Agent': 'Python Transloadit 0.0.0'
+        }
         self._client_kwargs = kwargs
 
     def _sign_request(self, params):
@@ -64,6 +67,7 @@ class TransloadItClient(object):
             method,
             url,
             files=files,
+            headers=self.headers,
             **req_kwargs
         )
 
