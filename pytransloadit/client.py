@@ -47,7 +47,7 @@ class TransloadItClient(object):
         data['signature'] = self._sign_request(params)
         return data
 
-    def execute(self, path, method='GET', params=None):
+    def execute(self, path, method='GET', params=None, files=None):
         url = "{}{}".format(self.base_url, path)
 
         if params is None:
@@ -55,11 +55,16 @@ class TransloadItClient(object):
 
         data = self.build_payload(params)
 
+        if method.upper() in ['POST', 'PUT', 'DELETE']:
+            req_kwargs = {'data': data}
+        else:
+            req_kwargs = {'params': data}
+
         response = requests.request(
             method,
             url,
-            params=data,
-            **self._client_kwargs
+            files=files,
+            **req_kwargs
         )
 
         return response.json()
