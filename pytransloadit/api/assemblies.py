@@ -2,10 +2,10 @@ from pytransloadit.api import base
 
 
 class Assemblies(base.APIEndpoint):
-    def __init__(self, api, endpoint='/assemblies'):
+    def __init__(self, api, path='/assemblies'):
         """ Creates a new instance of the assemblies API """
 
-        super(Assemblies, self).__init__(api, endpoint=endpoint)
+        super(Assemblies, self).__init__(api, path=path)
 
     def get(self, assembly_id=None):
         """Get one or many assemblies.
@@ -46,8 +46,8 @@ class Assemblies(base.APIEndpoint):
         :return:
         """
 
-        url = '{0}/{1}/{2}'.format(self.endpoint, assembly_id, 'replay')
-        response = self.api.execute("POST", url, params=params)
+        url = '{0}/{1}/{2}'.format(self.path, assembly_id, 'replay')
+        response = self.api.execute(url, method="POST", params=params)
         return response
 
     def replay_notification(self, assembly_id, params):
@@ -62,17 +62,17 @@ class Assemblies(base.APIEndpoint):
 
         url = '{0}/{1}/{2}'.format(
             '/assembly_notifications', assembly_id, 'replay')
-        response = self.api.execute("POST", url, params=params)
+        response = self.api.execute(url, method="POST", params=params)
         return response
 
-    def get_notifications(self, params):
+    def get_notifications(self, params=None):
         """Get a list of assembly notifications.
 
         :param params: additional params for request
         :type params: dict
         :return:
         """
-        endpoint = '/assembly_notifications'
+        path = '/assembly_notifications'
 
-        response = self.api.execute("GET", endpoint, params)
-        return response.json()
+        response = self.api.execute(path, method="GET", params=params)
+        return response

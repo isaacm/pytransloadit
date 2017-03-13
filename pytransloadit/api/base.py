@@ -1,15 +1,15 @@
 class APIEndpoint(object):
 
-    def __init__(self, api, endpoint=None, cls=None):
+    def __init__(self, api, path=None, cls=None):
         """API Endpoint base class.
 
         :param api: - API Client instance
         :type api: TransloadItClient
-        :param endpoint: The URI path to the resource
-        :type endpoint: str
+        :param path: The URI path to the resource
+        :type path: str
         """
         self.api = api
-        self.endpoint = endpoint
+        self.path = path
         self._cls = cls
 
     def get(self, resource_id=None):
@@ -21,12 +21,12 @@ class APIEndpoint(object):
         :returns: JSON response
         """
 
-        endpoint = self.endpoint
+        path = self.path
 
         if resource_id:
-            endpoint = '{}/{}'.format(endpoint, resource_id)
+            path = '{}/{}'.format(path, resource_id)
 
-        response = self.api.execute(endpoint, method="GET")
+        response = self.api.execute(path, method="GET")
 
         return response
 
@@ -37,7 +37,7 @@ class APIEndpoint(object):
 
         """
         response = self.api.execute(
-            self.endpoint, method="POST", params=params)
+            self.path, method="POST", params=params)
         return response
 
     def put(self, resource):
@@ -46,13 +46,13 @@ class APIEndpoint(object):
         :param resource: - The resource instance
         """
 
-        endpoint = self.endpoint
+        path = self.path
 
         if resource.id:
-            endpoint = '{}/{}'.format(endpoint, resource.id)
+            path = '{}/{}'.format(path, resource.id)
 
         response = self.api.execute(
-            endpoint, method="PUT", json=resource.as_json())
+            path, method="PUT", json=resource.as_json())
 
         return response
 
@@ -62,8 +62,8 @@ class APIEndpoint(object):
         :param resource_id - int - The resource ID to be deleted
         """
 
-        endpoint = '{}/{}'.format(self.endpoint, resource_id)
+        path = '{}/{}'.format(self.path, resource_id)
 
-        response = self.api.execute(endpoint, method="DELETE")
+        response = self.api.execute(path, method="DELETE")
 
         return response

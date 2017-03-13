@@ -2,8 +2,8 @@ from pytransloadit.api import base
 
 
 class Templates(base.APIEndpoint):
-    def __init__(self, api, endpoint='/templates'):
-        super(Templates, self).__init__(api, endpoint=endpoint)
+    def __init__(self, api, path='/templates'):
+        super(Templates, self).__init__(api, path=path)
 
     def get(self, template_id=None):
         """Get one or many templates.

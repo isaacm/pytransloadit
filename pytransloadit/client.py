@@ -26,19 +26,6 @@ class TransloadItClient(object):
         self.base_url = base_url
         self._client_kwargs = kwargs
 
-    def execute(self, method, path, **kwargs):
-        """Executes a request to a given endpoint, returning the result."""
-
-        url = "{}{}".format(self.host, path)
-        kwargs.update(self._client_kwargs)
-
-        response = requests.request(
-            method,
-            url,
-            **kwargs
-        )
-        return response
-
     def _sign_request(self, params):
         return hmac.new(
             self.secret, json.dumps(params), hashlib.sha1).hexdigest()
