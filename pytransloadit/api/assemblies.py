@@ -46,8 +46,8 @@ class Assemblies(base.APIEndpoint):
         :return:
         """
 
-        url = '{0}/{1}/{2}'.format(self.path, assembly_id, 'replay')
-        response = self.api.execute(url, method="POST", params=params)
+        path = '{0}/{1}/{2}'.format(self.path, assembly_id, 'replay')
+        response = self.api.execute(path, method="POST", params=params)
         return response
 
     def replay_notification(self, assembly_id, params):
@@ -60,9 +60,9 @@ class Assemblies(base.APIEndpoint):
         :return:
         """
 
-        url = '{0}/{1}/{2}'.format(
+        path = '{0}/{1}/{2}'.format(
             '/assembly_notifications', assembly_id, 'replay')
-        response = self.api.execute(url, method="POST", params=params)
+        response = self.api.execute(path, method="POST", params=params)
         return response
 
     def get_notifications(self, params=None):
