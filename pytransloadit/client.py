@@ -40,7 +40,7 @@ class TransloadItClient(object):
         if 'auth' not in params:
             params['auth'] = {
                 'key': self.key,
-                'expires': expires_dt.strftime('%Y/%m/%d %H:%M:%S') + '+00:00'
+                'expires': expires_dt.strftime('%Y/%m/%d %H:%M:%S+00:00')
             }
 
         if self.max_size is not None:
@@ -70,7 +70,6 @@ class TransloadItClient(object):
             headers=self.headers,
             **req_kwargs
         )
-
         return response.json()
 
 
@@ -83,3 +82,13 @@ class TransloadIt(object):
         self.client = client
         self.assemblies = assemblies.Assemblies(self.client)
         self.templates = templates.Templates(self.client)
+
+    def bill(self, month=None, year=None):
+        now = datetime.utcnow()
+        if month is None:
+            month = now.strftime('%m')
+
+        if year is None:
+            year = now.strftime('%Y')
+
+        return self.client.execute('/bill/{0}-{1:02d}'.format(year, month))
