@@ -35,12 +35,12 @@ class TransloadItClient(object):
 
     def build_payload(self, params):
         data = {}
+        expires_dt = datetime.utcnow() + timedelta(seconds=self.duration)
+
         if 'auth' not in params:
             params['auth'] = {
                 'key': self.key,
-                'expires': (
-                    datetime.utcnow() + timedelta(seconds=self.duration)
-                ).strftime('%Y/%m/%d %H:%M:%S')
+                'expires': expires_dt.strftime('%Y/%m/%d %H:%M:%S') + '+00:00'
             }
 
         if self.max_size is not None:
