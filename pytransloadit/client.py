@@ -35,19 +35,25 @@ class TransloadItClient(object):
 
     def build_payload(self, params):
         data = {}
-        expires_dt = datetime.utcnow() + timedelta(seconds=self.duration)
 
         if 'auth' not in params:
             params['auth'] = {
                 'key': self.key,
-                'expires': expires_dt.strftime('%Y/%m/%d %H:%M:%S+00:00')
             }
+
+        if len(self.secret) > 0:
+            expires_dt = datetime.utcnow() + timedelta(seconds=self.duration)
+            params['auth']['expires'] = \
+                expires_dt.strftime('%Y/%m/%d %H:%M:%S+00:00')
 
         if self.max_size is not None:
             params['auth']['max_size'] = self.max_size
 
         data['params'] = json.dumps(params)
-        data['signature'] = self._sign_request(params)
+
+        if len(self.secret) > 0:
+            data['signature'] = self._sign_request(params)
+
         return data
 
     def execute(self, path, method='GET', params=None, files=None):
