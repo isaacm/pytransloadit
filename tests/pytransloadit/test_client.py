@@ -9,5 +9,5 @@ class TestClient(unittest.TestCase):
         super(TestClient, self).setUp()
 
     def test_client(self):
-        api_client_obj = client.TransloadItClient('KEY', 'SECRET')
+        api_client_obj = client.TransloadItClient('auth-key', 'auth-secret')
         self.assertIsNotNone(api_client_obj)

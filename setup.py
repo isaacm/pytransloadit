@@ -31,6 +31,6 @@ setup(
         'requests'
     ],
     extras_require={
-        'test': ['pytest'],
+        'test': ['pytest', 'vcrpy-unittest'],
     }
 )
