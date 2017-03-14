@@ -1,8 +1,12 @@
-from codecs import open as codecs_open
+from codecs import open
+from os import path
 from setuptools import setup, find_packages
 
-# Get the long description from the relevant file
-with codecs_open('README.md', encoding='utf-8') as f:
+
+here = path.abspath(path.dirname(__file__))
+
+# Get the long description from the README file
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
@@ -10,8 +14,12 @@ setup(
     version='0.0.0',
     description=u"Client library for transloadit APIs.",
     long_description=long_description,
-    classifiers=[],
-    keywords='',
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+    ],
+    keywords='transloadit',
     author=u"Isaac Mungai",
     author_email='isaacm@users.noreply.github.com',
     url='https://github.com/isaacm/pytransloadit',

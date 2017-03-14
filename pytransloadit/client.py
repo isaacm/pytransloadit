@@ -6,8 +6,8 @@ import json
 
 import requests
 
-from pytransloadit.api import assemblies
-from pytransloadit.api import templates
+from pytransloadit import assemblies
+from pytransloadit import templates
 
 DEFAULT_BASE_URL = 'https://api2.transloadit.com'
 

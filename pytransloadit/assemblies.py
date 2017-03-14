@@ -1,4 +1,4 @@
-from pytransloadit.api import base
+from pytransloadit import base
 
 
 class Assemblies(base.APIEndpoint):
