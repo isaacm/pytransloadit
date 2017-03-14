@@ -34,11 +34,13 @@ class Templates(base.APIEndpoint):
 
         return super(Templates, self).delete(template_id)
 
-    def update(self, template_id):
+    def update(self, template_id, params):
         """Edit a template with the given id.
 
         :param template_id: template id to retrieve
         :type template_id: str
+        :param params: payload for the request
+        :type params: dict
         """
 
-        return super(Templates, self).put(resource_id=template_id)
+        return super(Templates, self).put(template_id, params)

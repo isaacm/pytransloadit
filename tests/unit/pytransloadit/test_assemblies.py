@@ -1,4 +1,4 @@
-from tests import base
+from tests.unit.pytransloadit import base
 
 
 class TestAssemblies(base.BaseUnitTest):

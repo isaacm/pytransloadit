@@ -38,7 +38,7 @@ class Assemblies(base.APIEndpoint):
 
         return super(Assemblies, self).delete(assembly_id)
 
-    def replay_assembly(self, assembly_id, params):
+    def replay_assembly(self, assembly_id, params=None):
         """Replay assembly with the given id.
 
         :param assembly_id: template id to retrieve
@@ -52,7 +52,7 @@ class Assemblies(base.APIEndpoint):
         response = self.api.execute(path, method="POST", params=params)
         return response
 
-    def replay_notification(self, assembly_id, params):
+    def replay_notification(self, assembly_id, params=None):
         """Replay assembly notification with the given id.
 
         :param assembly_id: template id to retrieve

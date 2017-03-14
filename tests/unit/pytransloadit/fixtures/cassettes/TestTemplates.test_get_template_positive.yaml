@@ -1,0 +1,25 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Python Transloadit 0.0.0]
+    method: GET
+    uri: https://api2.transloadit.com/templates/template_id?signature=3421f567688c9a06901691b5ecb974e68651266e&params=%7B%22auth%22%3A+%7B%22expires%22%3A+%222017%2F03%2F14+14%3A34%3A00%2B00%3A00%22%2C+%22key%22%3A+%22auth-key%22%7D%7D
+  response:
+    body: {string: !!python/unicode '{"error":"SERVER_404","message":"unknown method
+        / url"}'}
+    headers:
+      access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
+          Accept, Content-Length']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, OPTIONS']
+      access-control-allow-origin: ['*']
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-length: ['55']
+      content-type: [application/json; charset=utf-8]
+      date: ['Tue, 14 Mar 2017 14:28:54 GMT']
+    status: {code: 404, message: Not Found}
+version: 1

@@ -11,7 +11,7 @@ class BaseUnitTest(VCRTestCase):
     def setUp(self):
         super(BaseUnitTest, self).setUp()
 
-        self.transloadit_client = client.TransloaditClient(
+        self.transloadit_client = client.TransloadItClient(
             'auth-key', 'auth-secret')
         self.transloadit_api = client.TransloadIt(
             client=self.transloadit_client)

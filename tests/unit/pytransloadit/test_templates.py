@@ -1,4 +1,4 @@
-from tests import base
+from tests.unit.pytransloadit import base
 
 
 class TestTemplates(base.BaseUnitTest):
@@ -35,6 +35,8 @@ class TestTemplates(base.BaseUnitTest):
         self.assertEqual('TEMPLATE_DELETED', resp['ok'])
 
     def test_update_template_positive(self):
-        resp = self.transloadit_api.templates.update('template_id')
+        params = {"auth": {"key": ""}}
+        resp = self.transloadit_api.templates.update(
+            'template_id', params=params)
 
         self.assertEqual('TEMPLATE_UDPATED', resp['ok'])

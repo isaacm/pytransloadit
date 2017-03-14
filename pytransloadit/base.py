@@ -34,26 +34,27 @@ class APIEndpoint(object):
         """ Creates a new instance of the resource.
 
         :param params: payload for the request
+        :type params: dict
         :param files: a list of files to process
-
+        :type files: list of strings
         """
+
         response = self.api.execute(
             self.path, method="POST", params=params, files=files)
         return response
 
-    def put(self, resource):
+    def put(self, resource_id, params):
         """Edits an existing resource.
 
-        :param resource: - The resource instance
+        :param resource_id: - The resource identifier to make edit
+        :type resource_id: str
+        :param params: payload for the request
+        :type params: dict
         """
 
-        path = self.path
+        path = '{0}/{1}'.format(self.path, resource_id)
 
-        if resource.id:
-            path = '{}/{}'.format(path, resource.id)
-
-        response = self.api.execute(
-            path, method="PUT", json=resource.as_json())
+        response = self.api.execute(path, method="PUT", params=params)
 
         return response
 

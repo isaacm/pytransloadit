@@ -1,0 +1,27 @@
+interactions:
+- request:
+    body: !!python/unicode signature=900f2d2865e1cf5e36d56586f589c2673321f0d1&params=%7B%22template%22%3A+%7B%22key%22%3A+%22value%22%7D%2C+%22name%22%3A+%22test%22%2C+%22auth%22%3A+%7B%22expires%22%3A+%222017%2F03%2F14+14%3A33%3A59%2B00%3A00%22%2C+%22key%22%3A+%22auth-key%22%7D%7D
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['255']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [Python Transloadit 0.0.0]
+    method: POST
+    uri: https://api2.transloadit.com/templates
+  response:
+    body: {string: !!python/unicode '{"error":"GET_ACCOUNT_UNKNOWN_AUTH_KEY","message":"Could
+        not get account, this is an unknown auth key."}'}
+    headers:
+      access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
+          Accept, Content-Length']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, OPTIONS']
+      access-control-allow-origin: ['*']
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-length: ['104']
+      content-type: [application/json; charset=utf-8]
+      date: ['Tue, 14 Mar 2017 14:28:53 GMT']
+    status: {code: 400, message: Bad Request}
+version: 1
