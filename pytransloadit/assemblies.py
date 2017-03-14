@@ -30,13 +30,17 @@ class Assemblies(base.APIEndpoint):
         return super(Assemblies, self).post(params, files=files)
 
     def delete(self, assembly_id):
-        """Cancel an Assembly.
+        """Cancel an Assembly that is still in progress.
+
+        Note, this request can be issued by anyone who knows the assembly_url.
+        Make sure to to keep assembly ids and urls secret.
 
         :param assembly_id: template id to retrieve
         :type assembly_id: str
         """
 
-        return super(Assemblies, self).delete(assembly_id)
+        path = '{}/{}'.format(self.path, assembly_id)
+        return self.api.cancel_assembly(path)
 
     def replay_assembly(self, assembly_id, params=None):
         """Replay assembly with the given id.

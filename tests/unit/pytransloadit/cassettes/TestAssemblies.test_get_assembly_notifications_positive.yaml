@@ -7,10 +7,9 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [Python Transloadit 0.0.0]
     method: GET
-    uri: https://api2.transloadit.com/assemblies?signature=42ec94ff867b554d1e5e60880e27bdb206b829b7&params=%7B%22auth%22%3A+%7B%22expires%22%3A+%222017%2F03%2F14+14%3A33%3A58%2B00%3A00%22%2C+%22key%22%3A+%22auth-key%22%7D%7D
+    uri: https://api2.transloadit.com/assembly_notifications?params=%7B%22auth%22%3A+%7B%22key%22%3A+%22auth-key%22%7D%7D
   response:
-    body: {string: !!python/unicode '{"error":"GET_ACCOUNT_UNKNOWN_AUTH_KEY","message":"Could
-        not get account, this is an unknown auth key."}'}
+    body: {string: !!python/unicode '{"items":[],"count":0}'}
     headers:
       access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
           Accept, Content-Length']
@@ -20,6 +19,6 @@ interactions:
       connection: [keep-alive]
       content-length: ['104']
       content-type: [application/json; charset=utf-8]
-      date: ['Tue, 14 Mar 2017 14:28:53 GMT']
-    status: {code: 400, message: Bad Request}
+      date: ['Tue, 14 Mar 2017 15:32:11 GMT']
+    status: {code: 200, message: OK}
 version: 1

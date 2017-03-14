@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Python Transloadit 0.0.0]
+    method: GET
+    uri: https://api2.transloadit.com/assemblies/assembly_id?params=%7B%22auth%22%3A+%7B%22key%22%3A+%22auth-key%22%7D%7D
+  response:
+    body: {string: !!python/unicode '{"ok":"ASSEMBLY_COMPLETED","message":"The assembly was successfully
+        completed.","assembly_id":"assembly_id","assembly_url":"http://api2.jane.transloadit.com/assemblies/assembly_id","bytes_received":95355,"bytes_expected":95355,"client_agent":"Transloadit
+        Ruby SDK 0.1.2","client_ip":"74.95.29.209","client_referer":null,"start_date":"2011/02/21
+        15:54:17 GMT","upload_duration":0.394,"execution_duration":0.006,"fields":{},"uploads":[{"id":"0767b43537389a177a1be96ab06e8a4b","name":"test.png","basename":"test","ext":"png","size":95010,"mime":"image/jpeg","type":"image","field":"file_0","original_id":"0767b43537389a177a1be96ab06e8a4b","url":"http://tmp.jane.transloadit.com/upload/bf7801cb21fb96cbafd403467244d125.png","meta":{"width":640,"height":480,"date_recorded":null,"date_file_created":null,"date_file_modified":"2011/02/21
+        15:54:17 GMT","title":null,"description":null,"location":null,"city":null,"state":null,"country":null,"country_code":null,"keywords":"Photo
+        Booth","aperture":null,"exposure_compensation":null,"exposure_mode":null,"exposure_time":null,"flash":null,"focal_length":null,"f_number":null,"iso":null,"light_value":null,"metering_mode":null,"shutter_speed":null,"white_balance":null,"device_name":null,"device_vendor":null,"device_software":null,"latitude":null,"longitude":null,"frame_count":null}}],"results":{}}'}
+    headers:
+      access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
+          Accept, Content-Length']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, OPTIONS']
+      access-control-allow-origin: ['*']
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-length: ['1379']
+      content-type: [application/json; charset=utf-8]
+      date: ['Tue, 14 Mar 2017 15:32:11 GMT']
+    status: {code: 200, message: OK}
+version: 1

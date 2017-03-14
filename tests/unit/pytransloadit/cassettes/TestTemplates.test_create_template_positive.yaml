@@ -1,18 +1,17 @@
 interactions:
 - request:
-    body: !!python/unicode signature=a4c0e28de408824510878dea3b166674a082c490&params=%7B%22auth%22%3A+%7B%22key%22%3A+%22%22%7D%7D
+    body: !!python/unicode params=%7B%22name%22%3A+%22test%22%2C+%22template%22%3A+%7B%22key%22%3A+%22value%22%7D%2C+%22auth%22%3A+%7B%22key%22%3A+%22auth-key%22%7D%7D
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Content-Length: ['103']
+      Content-Length: ['140']
       Content-Type: [application/x-www-form-urlencoded]
       User-Agent: [Python Transloadit 0.0.0]
-    method: PUT
-    uri: https://api2.transloadit.com/templates/template_id
+    method: POST
+    uri: https://api2.transloadit.com/templates
   response:
-    body: {string: !!python/unicode '{"error":"SERVER_404","message":"unknown method
-        / url"}'}
+    body: {string: !!python/unicode '{"ok":"TEMPLATE_CREATED","template_name":"foo","template_content": {"key": "value"}}'}
     headers:
       access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
           Accept, Content-Length']
@@ -20,8 +19,8 @@ interactions:
       access-control-allow-origin: ['*']
       cache-control: [no-cache]
       connection: [keep-alive]
-      content-length: ['55']
+      content-length: ['84']
       content-type: [application/json; charset=utf-8]
-      date: ['Tue, 14 Mar 2017 14:50:03 GMT']
-    status: {code: 404, message: Not Found}
+      date: ['Tue, 14 Mar 2017 15:32:13 GMT']
+    status: {code: 200, message: OK}
 version: 1

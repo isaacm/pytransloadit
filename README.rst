@@ -20,7 +20,7 @@ Usage
 from pytransloadit import client
 
 cl = client.TransloadItClient('auth-key', 'auth-secret')
-api = client.TransloadIt(client=cl)
+api = client.TransloadItAPI(client=cl)
 
 
 # list all assemblies

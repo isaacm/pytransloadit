@@ -15,7 +15,8 @@ DEFAULT_BASE_URL = 'https://api2.transloadit.com'
 class TransloadItClient(object):
     """HTTP REST client for transloadit APIs."""
 
-    def __init__(self, key, secret,
+    def __init__(self, key,
+                 secret=None,
                  duration=300,
                  max_size=None,
                  base_url=DEFAULT_BASE_URL, **kwargs):
@@ -41,7 +42,7 @@ class TransloadItClient(object):
                 'key': self.key,
             }
 
-        if len(self.secret) > 0:
+        if self.secret is not None:
             expires_dt = datetime.utcnow() + timedelta(seconds=self.duration)
             params['auth']['expires'] = \
                 expires_dt.strftime('%Y/%m/%d %H:%M:%S+00:00')
@@ -51,7 +52,7 @@ class TransloadItClient(object):
 
         data['params'] = json.dumps(params)
 
-        if len(self.secret) > 0:
+        if self.secret is not None:
             data['signature'] = self._sign_request(params)
 
         return data
@@ -78,8 +79,14 @@ class TransloadItClient(object):
         )
         return response.json()
 
+    def cancel_assembly(self, path):
+        url = "{}{}".format(self.base_url, path)
+        response = requests.request('DELETE', url)
 
-class TransloadIt(object):
+        return response.json()
+
+
+class TransloadItAPI(object):
     def __init__(self, client=None, key=None, secret=None, **kwargs):
 
         if client is None:

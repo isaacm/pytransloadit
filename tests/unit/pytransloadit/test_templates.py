@@ -39,4 +39,4 @@ class TestTemplates(base.BaseUnitTest):
         resp = self.transloadit_api.templates.update(
             'template_id', params=params)
 
-        self.assertEqual('TEMPLATE_UDPATED', resp['ok'])
+        self.assertEqual('TEMPLATE_UPDATED', resp['ok'])
