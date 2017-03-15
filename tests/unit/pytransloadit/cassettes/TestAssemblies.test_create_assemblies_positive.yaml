@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: !!python/unicode params=%7B%22steps%22%3A+%7B%22encode%22%3A+%7B%22robot%22%3A+%22%2Fvideo%2Fencode%22%7D%7D%2C+%22auth%22%3A+%7B%22key%22%3A+%22auth-key%22%7D%7D
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['145']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [Python Transloadit 0.0.0]
+    method: POST
+    uri: https://api2.transloadit.com/assemblies
+  response:
+    body: {string: !!python/unicode '{"ok":"ASSEMBLY_COMPLETED","message":"The assembly was successfully
+        completed.","assembly_id":"assembly_id","assembly_url":"http://api2.jane.transloadit.com/assemblies/assembly_id","bytes_received":278,"bytes_expected":278,
+        "client_agent":"Python Transloadit 0.0.0","client_ip":"74.95.29.209","client_referer":null,"start_date":"2011/02/21
+        23:15:33 GMT","upload_duration":0.094,"execution_duration":0,"fields":{},"uploads":[],"results":{}}'}
+    headers:
+      access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
+          Accept, Content-Length']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, OPTIONS']
+      access-control-allow-origin: ['*']
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-length: ['1188']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 15 Mar 2017 17:49:49 GMT']
+    status: {code: 400, message: Bad Request}
+version: 1

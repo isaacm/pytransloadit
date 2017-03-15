@@ -6,6 +6,17 @@ class TestAssemblies(base.BaseUnitTest):
     def setUp(self):
         super(TestAssemblies, self).setUp()
 
+    def test_create_assemblies_positive(self):
+        resp = self.transloadit_api.assemblies.post({
+            "steps": {
+                "encode": {
+                    "robot": "/video/encode"
+                }
+            }
+        })
+
+        self.assertEqual('ASSEMBLY_COMPLETED', resp['ok'])
+
     def test_list_assemblies_positive(self):
         resp = self.transloadit_api.assemblies.get()
 
