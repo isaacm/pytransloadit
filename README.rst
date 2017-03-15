@@ -2,7 +2,9 @@ pytransloadit
 =============
 
 Python client for Transloadit.
-See Transloadit API [documentation](https://transloadit.com/docs/api-docs/)
+See Transloadit API documentation_.
+
+.. _documentation: http://transloadit.com/docs/api-docs/
 
 Install
 -------
@@ -11,21 +13,22 @@ To use pytransloadit, install the pip package from github.
 
 .. code-block:: console
 
-    pip install https://github.com/isaacm/pytransloadit
+   pip install git+https://github.com/isaacm/pytransloadit.git
 
 Usage
 -----
 
-```python
-from pytransloadit import client
+.. code-block:: python
 
-cl = client.TransloadItClient('auth-key', 'auth-secret')
-api = client.TransloadItAPI(client=cl)
+   from pytransloadit import client
+
+   cl = client.TransloadItClient('auth-key', 'auth-secret')
+   api = client.TransloadItAPI(client=cl)
 
 
-# list all assemblies
-api.assemblies.get()
+   # list all assemblies
+   api.assemblies.get()
 
-# list all templates
-api.templates.get()
-```
+   # list all templates
+   api.templates.get()
+
