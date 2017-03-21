@@ -104,4 +104,5 @@ class TransloadItAPI(object):
         if year is None:
             year = now.strftime('%Y')
 
-        return self.client.execute('/bill/{0}-{1:02d}'.format(year, month))
+        return self.client.execute(
+            '/bill/{0}-{1:02d}'.format(year, int(month)))

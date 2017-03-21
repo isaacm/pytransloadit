@@ -1,0 +1,24 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Python Transloadit 0.0.0]
+    method: GET
+    uri: https://api2.transloadit.com/bill/2017-03?params=%7B%22auth%22%3A+%7B%22key%22%3A+null%7D%7D
+  response:
+    body: {string: !!python/unicode '{"ok":"BILL_FOUND", "invoice_id":"invoice_id", "to":"", "email":"user@email.com", "month":"2017-03", "created":"2017-03-29T08:27:19.000Z", "plan":{"id":"plan_id", "title":"Sandbox", "slug":"sandbox", "price_per_month":0, "gb_included":2, "gb_limit":2, "max_jobs_simulteneous":1, "has_lifetime_limit":1, "price_per_gb":0, "published":1}}'}
+    headers:
+      access-control-allow-headers: ['X-Requested-With, Content-Type, Cache-Control,
+          Accept, Content-Length']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, OPTIONS']
+      access-control-allow-origin: ['*']
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-length: ['115']
+      content-type: [application/json; charset=utf-8]
+      date: ['Tue, 21 Mar 2017 12:15:16 GMT']
+    status: {code: 200, message: OK}
+version: 1
